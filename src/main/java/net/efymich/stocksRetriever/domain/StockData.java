@@ -2,18 +2,18 @@ package net.efymich.stocksRetriever.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "stock_history", schema = "test")
-@Builder
+@Table(name = "stock_data", schema = "test")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class StockData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,6 @@ public class StockData {
     Double low;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ticker")
+    @JoinColumn(name = "stockId")
     Stock stock;
 }

@@ -5,13 +5,11 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
-import java.util.Set;
-
 @Entity
 @Table(name = "users", schema = "test")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

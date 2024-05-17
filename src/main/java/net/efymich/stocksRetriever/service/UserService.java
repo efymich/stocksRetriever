@@ -5,7 +5,6 @@ import net.efymich.stocksRetriever.dao.UserRepository;
 import net.efymich.stocksRetriever.domain.User;
 import net.efymich.stocksRetriever.dto.RegisterDTO;
 import net.efymich.stocksRetriever.exception.DuplicateException;
-import net.efymich.stocksRetriever.mapper.RegisterMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,6 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
-//    private final RegisterMapper registerMapper;
     private final PasswordEncoder passwordEncoder;
 
     public void signUp(RegisterDTO request) {

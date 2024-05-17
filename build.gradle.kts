@@ -39,10 +39,11 @@ dependencies {
 
 	implementation("org.postgresql:postgresql:42.7.3")
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
+	compileOnly("org.mapstruct:mapstruct-processor:1.5.5.Final")
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
 	implementation("io.jsonwebtoken:jjwt-api:0.11.2")
 	implementation("io.jsonwebtoken:jjwt-impl:0.11.2")
 	implementation("io.jsonwebtoken:jjwt-jackson:0.11.2")
-
 }
 dependencyManagement {
 	imports {

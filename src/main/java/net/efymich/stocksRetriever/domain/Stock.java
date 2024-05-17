@@ -2,24 +2,23 @@ package net.efymich.stocksRetriever.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "stocks", schema = "test")
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long stockId;
 
     String ticker;
 
