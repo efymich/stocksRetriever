@@ -7,6 +7,9 @@ import net.efymich.stocksRetriever.domain.Stock;
 import net.efymich.stocksRetriever.domain.StockData;
 import net.efymich.stocksRetriever.dto.Interval;
 import net.efymich.stocksRetriever.dto.SaveStockRequest;
+import net.efymich.stocksRetriever.dto.SavedStockDataDTO;
+import net.efymich.stocksRetriever.dto.StockDataDTO;
+import net.efymich.stocksRetriever.mapper.SavedStockDataMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +23,7 @@ public class StockService {
     private final StockRepository stockRepository;
     private final StockDataRepository stockDataRepository;
     private final PolygonClientService polygonClientService;
+    private final SavedStockDataMapper savedStockDataMapper;
 
     public void saveStockData(SaveStockRequest saveStockRequest) {
 
@@ -31,6 +35,16 @@ public class StockService {
                 .getStockDataListFromClient(stock.get(), distinctPeriod);
 
         stockDataRepository.saveAll(stockDataListFromClient);
+    }
+
+    public SavedStockDataDTO getSavedStockData(String ticker) {
+        List<StockData> stockDataList = stockDataRepository.findByStockTickerOrderByDate(ticker);
+        List<StockDataDTO> stockDataDTOS = savedStockDataMapper.stockDataListToStockDataDTOList(stockDataList);
+
+        return SavedStockDataDTO.builder()
+                .ticker(ticker)
+                .data(stockDataDTOS)
+                .build();
     }
 
 }

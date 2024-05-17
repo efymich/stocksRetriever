@@ -3,6 +3,7 @@ package net.efymich.stocksRetriever.controller;
 import lombok.RequiredArgsConstructor;
 import net.efymich.stocksRetriever.constants.ErrorMessages;
 import net.efymich.stocksRetriever.dto.SaveStockRequest;
+import net.efymich.stocksRetriever.dto.SavedStockDataDTO;
 import net.efymich.stocksRetriever.exception.ValidationException;
 import net.efymich.stocksRetriever.service.StockService;
 import net.efymich.stocksRetriever.validator.StockRequestValidator;
@@ -19,8 +20,8 @@ public class StockController {
     private final StockRequestValidator validator;
 
     @GetMapping("/saved")
-    public String getSavedUser() {
-        return "I am ok";
+    public SavedStockDataDTO getSavedStockData(@RequestParam String ticker) {
+        return stockService.getSavedStockData(ticker);
     }
 
     @PostMapping("/save")
