@@ -37,8 +37,11 @@ public class PolygonClientService {
             if (polygonResponse != null) {
                 List<StockData> stockDataList = polygonMapper.resultsToStockDataList(polygonResponse.getResults());
                 stockDataList.stream()
-                        .peek(stockData -> stockData.setStock(stock));
-                resultList.addAll(stockDataList);
+                        .map(stockData -> {
+                            stockData.setStock(stock);
+                            return stockData;
+                        })
+                        .forEach(resultList::add);
             }
         });
 

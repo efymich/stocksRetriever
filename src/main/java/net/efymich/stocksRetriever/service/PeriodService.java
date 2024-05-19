@@ -21,19 +21,20 @@ public class PeriodService {
     public List<Interval> getDistinctPeriod(SaveStockRequest saveStockRequest) {
 
         List<Interval> resultedIntervals = new ArrayList<>();
-        LocalDate savedMinDate = stockDataRepository.findMinDateByStock();
-        LocalDate savedMaxDate = stockDataRepository.findMaxDateByStock();
 
         LocalDate requestedMinDate = saveStockRequest.getStart();
         LocalDate requestedMaxDate = saveStockRequest.getEnd();
-
-        Interval savedInterval = new Interval(savedMinDate, savedMaxDate);
         Interval requestedInterval = new Interval(requestedMinDate, requestedMaxDate);
 
         if (stockDataRepository.count() == 0){
             resultedIntervals.add(requestedInterval);
             return resultedIntervals;
         }
+
+        LocalDate savedMinDate = stockDataRepository.findMinDateByStock();
+        LocalDate savedMaxDate = stockDataRepository.findMaxDateByStock();
+        Interval savedInterval = new Interval(savedMinDate, savedMaxDate);
+
 
         for (IntervalValidator validator : intervalValidatorList) {
             List<Interval> intervals = validator.validateAndGetList(requestedInterval, savedInterval);

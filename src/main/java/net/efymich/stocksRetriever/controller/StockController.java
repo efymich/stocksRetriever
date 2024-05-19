@@ -1,5 +1,6 @@
 package net.efymich.stocksRetriever.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import net.efymich.stocksRetriever.constants.ErrorMessages;
 import net.efymich.stocksRetriever.dto.SaveStockRequest;
@@ -33,7 +34,8 @@ public class StockController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> saveStockForUser(@RequestBody SaveStockRequest saveStockRequest) throws ValidationException {
+    public ResponseEntity<?> saveStockForUser(@Valid @RequestBody SaveStockRequest saveStockRequest)
+            throws ValidationException {
         if (!validator.isPeriodValid(saveStockRequest)) {
             throw new ValidationException(ErrorMessages.INVALID_PERIOD);
         }

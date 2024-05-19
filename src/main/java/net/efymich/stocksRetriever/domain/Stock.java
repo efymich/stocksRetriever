@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "stocks", schema = "test")
+@Table(name = "stocks")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -24,4 +24,5 @@ public class Stock {
 
     @OneToMany(mappedBy = "stock")
     List<StockData> stockDataList;
+
 }

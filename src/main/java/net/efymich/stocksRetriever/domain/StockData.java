@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "stock_data", schema = "test")
+@Table(name = "stock_data")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -26,6 +26,6 @@ public class StockData {
     Double low;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "stockId")
+    @JoinColumn(name = "stockId",nullable = false)
     Stock stock;
 }

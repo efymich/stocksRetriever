@@ -16,10 +16,13 @@ spring:
       ddl-auto: validate
     database: postgresql
   liquibase:
-    enabled: false
+    enabled: true
+    change-log: db/changelog/master.xml
+    drop-first: true
+    liquibase-schema: public
 logging:
   level:
-    root: debug
+    root: info
 client:
   timespan: day
   multiplier: 1

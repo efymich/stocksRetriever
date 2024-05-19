@@ -20,7 +20,7 @@ public class CacheService {
     @Scheduled(fixedRate = 30000)
     public void checkAndEvictCache() {
         long count = stockRepository.count();
-        if (count > 20) {
+        if (count > 50) {
             evictAllCache();
         }
     }
