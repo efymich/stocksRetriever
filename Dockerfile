@@ -1,11 +1,5 @@
-FROM gradle:8.7-jdk21-alpine as build
+FROM openjdk:19-alpine
 WORKDIR /app
-COPY build.gradle.kts settings.gradle.kts /app/
-COPY gradle /app/
-COPY src /app/src
-RUN gradle build --no-daemon
-
-FROM openjdk:21-jdk-slim
-WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
-ENTRYPOINT ["java","-jar", "app.jar"]
+COPY /build/libs/*.jar /app/app.jar
+CMD ["java", "-jar", "/app/app.jar"]
+EXPOSE 8080
