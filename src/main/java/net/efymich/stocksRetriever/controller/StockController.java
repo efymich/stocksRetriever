@@ -16,24 +16,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/stock")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class StockController {
 
     private final StockService stockService;
     private final StockRequestValidator validator;
 
-    @GetMapping
+    @GetMapping("/stocks")
     public List<StockDTO> getAllTickers() {
         return stockService.getAllTickers();
     }
 
-    @GetMapping("/saved")
+    @GetMapping("/tickers")
     public SavedStockDataDTO getSavedStockData(@RequestParam String ticker) {
         return stockService.getSavedStockData(ticker);
     }
 
-    @PostMapping("/save")
+    @PostMapping("/stocks")
     public ResponseEntity<?> saveStockForUser(@Valid @RequestBody SaveStockRequest saveStockRequest)
             throws ValidationException {
         if (!validator.isPeriodValid(saveStockRequest)) {
