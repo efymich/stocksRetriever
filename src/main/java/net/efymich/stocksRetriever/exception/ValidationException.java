@@ -1,10 +1,6 @@
 package net.efymich.stocksRetriever.exception;
 
-import lombok.AllArgsConstructor;
+import lombok.experimental.StandardException;
 
-
-public class ValidationException extends RuntimeException{
-    public ValidationException(String message) {
-        super(message);
-    }
-}
+@StandardException
+public class ValidationException extends RuntimeException{}

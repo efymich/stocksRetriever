@@ -1,10 +1,6 @@
 package net.efymich.stocksRetriever.exception;
 
-import lombok.AllArgsConstructor;
+import lombok.experimental.StandardException;
 
-@AllArgsConstructor
-public class NotFoundException extends RuntimeException {
-    public NotFoundException(String message) {
-        super(message);
-    }
-}
+@StandardException
+public class NotFoundException extends RuntimeException {}

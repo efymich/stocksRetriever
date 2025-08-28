@@ -1,5 +1,6 @@
 package net.efymich.stocksRetriever.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import net.efymich.stocksRetriever.dao.StockDataRepository;
 import net.efymich.stocksRetriever.dto.Interval;
@@ -18,6 +19,7 @@ public class PeriodService {
     private final StockDataRepository stockDataRepository;
     private final List<IntervalValidator> intervalValidatorList;
 
+    @Transactional
     public List<Interval> getDistinctPeriod(SaveStockRequest saveStockRequest) {
 
         List<Interval> resultedIntervals = new ArrayList<>();
@@ -45,5 +47,4 @@ public class PeriodService {
         }
         return resultedIntervals;
     }
-
 }

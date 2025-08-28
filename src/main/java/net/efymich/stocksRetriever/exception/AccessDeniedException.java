@@ -1,10 +1,6 @@
 package net.efymich.stocksRetriever.exception;
 
-import lombok.AllArgsConstructor;
+import lombok.experimental.StandardException;
 
-@AllArgsConstructor
-public class AccessDeniedException extends RuntimeException{
-    public AccessDeniedException(String message) {
-        super(message);
-    }
-}
+@StandardException
+public class AccessDeniedException extends RuntimeException{}

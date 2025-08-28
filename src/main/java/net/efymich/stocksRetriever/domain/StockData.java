@@ -28,4 +28,6 @@ public class StockData {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "stockId",nullable = false)
     Stock stock;
+
+    //TODO: Аннотация Version - оптимистическая блокировка. Нужно посмотреть для безопасности данных
 }
