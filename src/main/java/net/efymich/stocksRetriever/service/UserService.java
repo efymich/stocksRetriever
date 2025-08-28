@@ -1,7 +1,7 @@
 package net.efymich.stocksRetriever.service;
 
 import lombok.RequiredArgsConstructor;
-import net.efymich.stocksRetriever.dao.UserRepository;
+import net.efymich.stocksRetriever.repository.UserRepository;
 import net.efymich.stocksRetriever.domain.User;
 import net.efymich.stocksRetriever.dto.RegisterDTO;
 import net.efymich.stocksRetriever.exception.DuplicateException;

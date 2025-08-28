@@ -2,7 +2,7 @@ package net.efymich.stocksRetriever.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import net.efymich.stocksRetriever.dao.StockDataRepository;
+import net.efymich.stocksRetriever.repository.StockDataRepository;
 import net.efymich.stocksRetriever.dto.Interval;
 import net.efymich.stocksRetriever.dto.SaveStockRequest;
 import net.efymich.stocksRetriever.validator.IntervalValidator;

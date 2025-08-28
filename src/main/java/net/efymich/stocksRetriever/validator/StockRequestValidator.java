@@ -1,7 +1,7 @@
 package net.efymich.stocksRetriever.validator;
 
 import lombok.RequiredArgsConstructor;
-import net.efymich.stocksRetriever.dao.StockRepository;
+import net.efymich.stocksRetriever.repository.StockRepository;
 import net.efymich.stocksRetriever.domain.Stock;
 import net.efymich.stocksRetriever.dto.SaveStockRequest;
 import org.springframework.stereotype.Component;

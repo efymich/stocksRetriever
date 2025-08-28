@@ -1,8 +1,8 @@
 package net.efymich.stocksRetriever.service;
 
 import lombok.RequiredArgsConstructor;
-import net.efymich.stocksRetriever.dao.StockDataRepository;
-import net.efymich.stocksRetriever.dao.StockRepository;
+import net.efymich.stocksRetriever.repository.StockDataRepository;
+import net.efymich.stocksRetriever.repository.StockRepository;
 import net.efymich.stocksRetriever.domain.Stock;
 import net.efymich.stocksRetriever.domain.StockData;
 import net.efymich.stocksRetriever.dto.*;

@@ -1,7 +1,7 @@
 package net.efymich.stocksRetriever.service;
 
 import lombok.RequiredArgsConstructor;
-import net.efymich.stocksRetriever.dao.StockRepository;
+import net.efymich.stocksRetriever.repository.StockRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

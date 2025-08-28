@@ -24,13 +24,13 @@ public class StockController {
     private final StockRequestValidator validator;
 
     @GetMapping("/stocks")
-    public List<StockDTO> getAllTickers() {
-        return stockService.getAllTickers();
+    public ResponseEntity<List<StockDTO>> getAllTickers() {
+        return ResponseEntity.ok(stockService.getAllTickers());
     }
 
     @GetMapping("/tickers")
-    public SavedStockDataDTO getSavedStockData(@RequestParam String ticker) {
-        return stockService.getSavedStockData(ticker);
+    public ResponseEntity<SavedStockDataDTO> getSavedStockData(@RequestParam String ticker) {
+        return ResponseEntity.ok(stockService.getSavedStockData(ticker));
     }
 
     @PostMapping("/stocks")

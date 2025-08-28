@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import net.efymich.stocksRetriever.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -20,7 +19,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@Profile("!test")
 public class SecurityConfig {
 
     private final UserDetailsServiceImpl userDetailsService;
@@ -39,12 +37,10 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
     // Set permissions on endpoints
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST,"/api/v1/user/signup/**").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/v1/user/login/**").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/v1/users/**").permitAll()
     // My private endpoints
                         .anyRequest().authenticated())
                 .authenticationManager(authenticationManager(http))
-
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
